@@ -27,7 +27,7 @@ class Author(models.Model):
 class BlogPost(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
-    image = models.ImageField(upload_to='blog_images/')
+    image = models.ImageField(upload_to='images/')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)

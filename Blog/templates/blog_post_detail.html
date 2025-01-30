@@ -1,21 +1,29 @@
 {% extends 'base.html' %}
 {% block 'main' %}
 
-<div class="container mt-5" style="height: 100%; width: 100%;">
-    <div class="card shadow">
-        <img src="{{ post.image.url }}" style="height: 100px; width: 100%;" class="card-img-top p-3" alt="Blog Post Image">
+<!-- Container for the Card -->
+<div class="container mt-5" style="height: 100%; width: 80%; color: black;">
+    {% for i in post %}
+    <div class="card shadow mb-4" style="height: auto;">
+        <!-- Display Blog Post Image with fixed size -->
+        <img src="{{ i.image.url }}" style="height: 250px; width: 100%;" class="card-img-top p-3" alt="Blog Post Image">
+        
         <div class="card-body">
-            {% for post in posts %}
-            <h1 class="card-title">{{ post.title }}</h1>
+            <!-- Display Blog Post Title -->
+            <h2 class="card-title">{{ i.title }}</h2>
             
-            <p><small class="text-muted">Author: {{ post.author.first_name }} | Category: {{ post.category }} | Posted on: {{ post.created_at }}</small></p>
+            <!-- Display Author, Category, and Created Date -->
+            <p><small class="text-muted">Author: {{ i.author.first_name }} | Category: {{ i.category }} | Posted on: {{ i.created_at }}</small></p>
             <hr />
-            <p class="card-text">{{ post.content }}</p>
-            {% endfor %}
+            
+            <!-- Display Blog Post Content -->
+            <p class="card-text" style="color: black;">{{ i.content }}</p>
         </div>
+        
+        <!-- Go Back Button -->
         <a href="/home" style="background-color: #3B1E54; border: none; margin-top: 10px;" class="btn btn-primary">Go Back</a>
     </div>
-    </div>
+    {% endfor %}
 </div>
 
 {% endblock 'main' %}

@@ -297,8 +297,12 @@ def myprofile(request):
 
 def post_detail(request, post_id):
     # Specific blog post fetch by ID
+    context={}
+    print(post_id)
     post = Post.objects.filter(id=post_id)
-    return render(request, 'blog_post_detail.html')
+    print(post)
+    context['post']=post
+    return render(request, 'blog_post_detail.html',context)
 
 
 
