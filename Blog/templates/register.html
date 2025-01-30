@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %} 
+    <div class="container mt-1">
+        <div class="row">
+            <div class="col-md-5 mx-auto shadow p-3 mt-2 form-style" style="background-color: white;">
+                {% if errormsg %}
+                    <div class="alert alert-danger" role="alert">
+                        {{errormsg}}
+                    </div>
+                {% endif %}
+
+                {% if success %}
+                    <div class="alert alert-success" role="alert">
+                        {{success}}
+                    </div>
+                {% endif %}
+
+                <center><h5 style="color: red;">User Registration</h5></center>
+                <hr>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-2">
+                        <label for="Input1" class="form-label">Name:</label>
+                        <input type="text" name="uname" placeholder="enter your name" class="form-control" id="Input1" required>
+                        <!-- <label for="enter tj"></label> -->
+                    </div>
+                    
+                    <div class="mb-2">
+                        <label for="Input2" class="form-label">Email:</label>
+                        <input type="email" name="uemail" placeholder="enter the email" class="form-control" id="Input2" required>
+                    </div>
+                    
+                    <div class="mb-2">
+                        <label for="Input3" class="form-label">Password:</label>
+                        <input type="password" name="upass" placeholder="enter the password" class="form-control" id="Input3" required>
+                        
+                    </div>
+                    
+                    <div class="mb-2">
+                        <label for="Input4" class="form-label">Confirm Password:</label>
+                        <input type="password" name="ucpass" placeholder="enter the confirm password" class="form-control" id="Input4" required>
+                    </div>
+
+                    <div class="mb-2">
+                        <input type="submit" value="Register" class="btn btn-danger w-100">
+                    </div>
+                    
+                    <div class="text-center mt-3" style="background-color: transparent; color: black;">
+                        Already have an account? <a href="/login" style="color: red;">Login here</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+</body>
+</html>
+{% endblock 'main' %}

@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+
+<!-- Hero Section Big image section in home page -->
+<section class="hero-section text-center mt-3">
+    <div class="container">
+        <h1>Welcome to the Blog-Crafters</h1>
+        <p>
+            Discover the latest articles, tutorials, and guides on various topics.
+        </p>
+        <a href="/exploreblog" style="background-color: 3B1E54;" class="btn btn-lg mt-3">Explore Now</a>
+    </div>
+</section>
+
+<!-- Start the Filter section -->
+<div class="container my-3" style="width: 380px; height: 80px;" >
+    <!-- Horizontal Filter Bar -->
+    <div class="p-3 shadow rounded-3 mb-4" style="background-color: white;">
+        <div class="d-flex flex-wrap align-items-center justify-content-between">
+                   <!-- Author Filter -->
+                   <div>
+                        <form method="get" action="/search" class="d-flex">
+                            <input type="text" class="form-control me-2" name="srch" placeholder="Search Author" />
+                            <button type="submit"  style="background-color: #3B1E54; border: none;" class="btn btn-primary">Search</button>
+                        </form>
+                    </div>
+        </div>
+    </div>
+</div>
+            <!-- Category Filter -->
+            <!-- <div class="me-1">
+                <form method="GET" action="#">
+                    <label for="category" class="me-2">Category:</label>
+                    <select class="form-select d-inline-block w-auto" name="category" id="category" onchange="this.form.submit()">
+                        <option value="">All Categories</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Health">Health</option>
+                        <option value="Lifestyle">Lifestyle</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Education">Education</option>
+                    </select>
+                </form>
+            </div> -->
+            
+
+            <!-- Sorting Filter -->
+            <!-- <div class="me-3">
+                <form method="GET" action="#">
+                    <label for="sort_by" class="me-2">Sort By:</label>
+                    <select class="form-select d-inline-block w-auto" name="sort_by" id="sort_by" onchange="this.form.submit()">
+                        <option value="date">Date</option>
+                        <option value="popularity">Popularity</option>
+                        <option value="title">Title</option>
+                    </select>
+                </form>
+            </div> -->
+
+            <!-- Author Filter -->
+            <!-- <div>
+                <form method="get" action="/search" class="d-flex">
+                    <input type="text" class="form-control me-2" name="srch" placeholder="Search Author" />
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+            <!-- Blog Posts Card section start -->
+            <!-- <div class="row"> -->
+                <!-- Blog content will go here -->
+            <!-- </div> -->
+<!-- </div> -->
+
+<!-- Blog Posts Section (Full Width Cards) -->
+<div class="container-fluid my-3" style="color: black">
+    <div class="row">
+        <!-- Blog Post Cards -->
+        {% for i in data %}
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card blog-post-card shadow h-100">
+                
+                <img src="{{i.image.url}}" class="card-img-top p-2" alt="Blog Post Image" />
+                
+                <div class="card-body">
+                    <h5 class="card-title">{{i.title}}</h5>
+                    <p>
+                        <small class="text-muted">Author: {{i.author.first_name}} | {{i.created_at}}</small>
+                    </p>
+                    <!-- <p class="card-text">{{ i.content|truncatechars:100 }}</p> -->
+                    <p class="card-text">{{ i.content }}</p>
+                    <a href="/post/{{i.id}}" style="background-color: #3B1E54; border: none;" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock 'main' %}

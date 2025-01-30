@@ -1,0 +1,163 @@
+
+    /* Hero section */
+    .mt-3 {
+        background-color: #3B1E54;
+        border: transparent;
+        color: white;
+    }
+    
+    /* General Styles */
+    body {
+        font-family: "Arial", sans-serif;
+        background-color: #d4bee4;
+        margin: 0;
+        padding: 0;
+        color: white;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 20px;
+    }
+
+    /* Header Styles */
+    .pricing-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .pricing-header h1 {
+        font-size: 36px;
+        font-weight: bold;
+        color: #2c3e50;
+    }
+
+    .pricing-header p {
+        font-size: 18px;
+        color: #7f8c8d;
+        line-height: 1.5;
+    }
+
+    /* Pricing Section */
+    .pricing-section .row {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .plan-card {
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+        margin: 15px;
+        width: 100%;
+        max-width: 350px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .plan-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+/* ================================================this is card section================================================ */
+
+    /* Card Body */
+    .card {
+        display: flex;
+        margin-top: 10px;
+        width: 100%; /* Fixed width for the card */
+        height: 400px; /* Fixed height for the card */
+        overflow: hidden; /* Prevent content overflow */
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+        transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover animation */
+    }
+
+    /* Hover Effect for Card */
+    .card:hover {
+        transform: translateY(-10px); /* Move card upwards */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a deeper shadow */
+    }
+
+    /* Card Image */
+    .card-img-top {
+        height: 100px; /* Fixed height for the image */
+        object-fit: cover; /* Ensures image scales properly */
+        border-top-left-radius: 10px; /* Match card's border radius */
+        border-top-right-radius: 10px; /* Match card's border radius */
+        transition: transform 0.3s; /* Smooth hover animation for image */
+    }
+
+    /* Hover Effect for Image */
+    .card:hover .card-img-top {
+        transform: scale(1.05); /* Slight zoom effect on hover */
+    }
+
+    /* Card Body */
+    .card-body {
+        padding: 15px; /* Add some padding inside the card */
+        display: flex;
+        flex-direction: column; /* Stack content vertically */
+        justify-content: space-between; /* Space out content inside */
+    }
+
+    /* Card Title */
+    .card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+        transition: color 0.3s; /* Smooth color transition */
+    }
+
+    /* Hover Effect for Title */
+    .card:hover .card-title {
+        color: #007bff; /* Change title color on hover */
+    }
+
+    /* Card Text */
+    .card-text {
+        font-size: 0.9rem;
+        color: #555;
+        max-height: 100px; /* Limit text height */
+        overflow: hidden; /* Hide overflowing text */
+        text-overflow: ellipsis; /* Add ellipsis for hidden text */
+        line-height: 1.5; /* Improve text readability */
+    }
+
+    /* Text Muted */
+    .text-muted {
+        font-size: 0.8rem;
+        color: #888;
+    }
+
+    /* Button */
+    .btn {
+        margin-top: auto; /* Push the button to the bottom */
+        transition: background-color 0.3s, color 0.3s; /* Smooth hover animation */
+    }
+
+    /* Hover Effect for Button */
+    .btn:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    /* Buttons */
+    .btn-subscribe {
+        text-decoration: none;
+        background: #3498db;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        /* transition: background 0.3s ease; */
+    }
+
+    .btn-subscribe:hover {
+        background: #2980b9;
+    }

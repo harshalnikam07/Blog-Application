@@ -1,0 +1,226 @@
+/* ===============================================Navbar section strt========================================== */
+.navbar{
+  position: sticky;
+  margin-top: 25px;
+  margin: 20px 20px;
+  border-radius: 30px;
+  background-color: #3B1E54; /* Light background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 10px 20px;
+}
+
+/* Navbar brand styling */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #D4BEE4;
+}
+
+.navbar-brand:hover {
+  color: #75a9e0; /* Hover color */
+  text-decoration: none;
+}
+
+/* Navbar links */
+.nav-link {
+  margin-right: 55px;
+  margin-left: 15px;
+  font-size: 1rem;
+  color: #EEEEEE; /* Default link color */
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #2773e5; /* Hover link color */
+}
+
+/* Active link styling */
+.nav-link.active {
+  color: #007bff;
+  font-weight: bold;
+  border-bottom: 2px solid #007bff; /* Highlight for active link */
+}
+
+/* Toggler button styling */
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  filter: invert(50%);
+}
+
+/* Search bar */
+/* .form-control {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+} */
+
+.btn-outline-success {
+  border-radius: 20px;
+  padding: 0.5rem 1.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-success:hover {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Profile icon */
+.nav-link i.bi-person-circle {
+  font-size: 1.5rem;
+  color: #EEEEEE;
+  transition: color 0.3s ease;
+}
+
+.nav-link i.bi-person-circle:hover {
+  color: #007bff;
+}
+
+/* Logo spacing */
+img.mx-2 {
+  border-radius: 50%; /* Circular logo */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .form-control {
+    padding: 0.4rem 1rem;
+  }
+
+  .btn-outline-success {
+    padding: 0.4rem 1rem;
+  }
+}
+
+
+
+
+
+/* =========================================== my profile section starts ========================================== */
+
+.profile-container {
+  padding-top: 30px;
+}
+
+.profile-card {
+  background: #ffffff;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.profile-card:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.profile-header {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: #fff;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 115px;
+  border-radius: 50%;
+  margin-top: 20px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  color: #6c757d;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-details {
+  padding: 30px;
+  text-align: center;
+}
+
+.profile-details h5 {
+  font-size: 1.2rem;
+  color: #343a40;
+  margin-bottom: 10px;
+}
+
+.profile-details p {
+  font-size: 1rem;
+  color: #6c757d;
+  margin-bottom: 20px;
+}
+
+.subscription-plan {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.badge-premium {
+  background-color: #ffc107;
+  color: #212529;
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+
+/* =============================================Footer section============================================== */
+
+.footer {
+  background-color: #3B1E54; /* Dark background */
+  color: #ecf0f1;           /* Light text color */
+  padding: 20px 0;         /* Top and Bottom Padding */
+  text-align: center;
+}
+
+.footer .footer-links {
+  margin: 10px 0;
+}
+
+.footer .footer-links a {
+  color: #ecf0f1;           /* Light color for links */
+  margin: 0 10px;          /* Spacing between links */
+  text-decoration: none;   /* Remove underline */
+  font-size: 16px;         /* Font size */
+}
+
+.footer .footer-links a:hover {
+  color: #3498db;          /* Change link color on hover */
+  text-decoration: underline;
+}
+
+.footer .copyright {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #bdc3c7;          /* Slightly dimmer text */
+}
+
+@media (max-width: 768px) {
+  .footer .footer-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .footer .footer-links a {
+      margin: 5px 0;       /* Adjust spacing for smaller screens */
+  }
+}
+
+

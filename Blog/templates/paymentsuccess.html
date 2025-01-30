@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+
+
+<div class="container-fluid mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- Success Message Card -->
+            <div class="card shadow-lg border-0 rounded-lg text-center">
+                <div class="card-body bg-success text-white rounded-top">
+                    <h1 class="display-4"><i class="fas fa-check-circle"></i> Payment Successful</h1>
+                </div>
+                <div class="card-body bg-light">
+                    <h3 class="text-primary">Subscription Activated..!!</h3>
+                    <p class="lead text-muted">Thank you for being a part of Blog-Crafters! Your subscription is currently active, giving you access to exclusive content and updates. Keep crafting your story!</p>
+                    <div class="my-4">
+                        <a href="/home" class="btn btn-outline-primary btn-lg rounded-pill shadow-sm">
+                            <i class="fas fa-shopping-bag"></i> Home
+                        </a>
+                    </div>
+                </div>
+                <div class="card-footer bg-light rounded-bottom">
+                    <small class="text-muted">Your satisfaction is our priority. Thank you for choosing us!</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock 'main' %}

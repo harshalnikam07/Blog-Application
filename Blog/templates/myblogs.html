@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+<div class="content-wrapper">
+    {% for i in data %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mx-auto mt-1"> 
+                <div class="blog-post">
+                    <h3>{{i.title}}</h3>
+                    <div class="blog-meta">
+                        <span>Category :<strong> {{i.category}}</strong> | </span>
+                        <span>Published on <strong>{{i.created_at}}</strong></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 blog-content">
+                            <p>{{i.content}}</p>
+                            <a href="/edit/{{i.id}}"><button type="button" class="btn btn-warning mx-1">Edit</button></a>
+                            <a href="/delete/{{i.id}}"><button type="button" class="btn btn-danger mx-1">Delete</button></a>
+                        </div>
+                        <div class="col-md-4">
+                            <img src="{{i.image.url}}" alt="Blog Image" class="blog-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock 'main' %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+
+<div class="container mt-5">
+    <!-- Reduced the space in the header -->
+    <div class="pricing-header text-center mb-3">
+        <h1>Choose Your Perfect Plan</h1>
+        <p>Flexible pricing options designed for bloggers, authors, and content creators. Select the one that fits your needs!</p>
+    </div>
+
+    <!-- Pricing Plans Section -->
+    <section class="pricing-section">
+        <div class="row">
+            <!-- Loop through each plan in data -->
+            {% for i in data %}
+            <div class="col-md-4">
+                <div class="plan-card shadow-md">
+                    <div class="card-body text-center">
+                        <!-- Plan Title -->
+                        <h3 class="card-title">{{i.sub_plan}}</h3>
+                        <!-- Plan Price -->
+                        <p class="card-price">Rs.{{i.price}}/month</p>
+                        
+                        <!-- Plan Features -->
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check2"></i> Post up to {{i.no_of_post}} blog entries</li>
+                            <li><i class="bi bi-check2"></i> Email support</li>
+                            <li><i class="bi bi-check2 checkmark"></i> 5 GB of storage</li>
+                            <li><i class="bi bi-check2 crossmark"></i> Access to analytics dashboard</li>
+                        </ul>
+                        
+                        <!-- Subscribe Button -->
+                        <a href="/pay/{{i.id}}" style="background-color: #3B1E54; border: none;" class="btn btn-primary">Subscribe</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+{% endblock 'main' %}

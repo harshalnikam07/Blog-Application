@@ -1,0 +1,233 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <script src="{% static 'js/script.js' %}" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* home page style starts */
+      .hero-section {
+        background: url("{% static 'images/blog-bg.png' %}");
+        margin: 0 20px;
+        border-radius: 10px;
+        background-size: cover;
+        color: white;
+        padding: 60px 0;
+      }
+
+      .hero-section h1 {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+
+      .hero-section p {
+        font-size: 1.2rem;
+      }
+
+      .blog-post-card {
+        margin-bottom: 30px;
+      }
+
+      .blog-post-card img {
+        height: 300px;
+        object-fit: cover;
+      }
+      /* home page style ends here  */
+
+    </style>
+  </head>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+      <a href="/home"
+        ><img
+          src="{% static 'images/blog_logo.png' %}"
+          alt=""
+          height="35px"
+          width="35px"
+          class="mx-2"
+      /></a>
+      <a class="navbar-brand mx-2" href="/home"
+        ><strong>Blog-Crafters</strong></a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/exploreblog">Explore</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/postblog">Post</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/subscribe">Subscribe</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/aboutus">About us</a>
+          </li>
+
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="/myblogs">MyBlogs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/myprofile"
+              ><i class="bi bi-person-circle" style="color: #eeeeee"></i
+            ></a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="/register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          {% endif %}
+        </ul>
+        <button id="mode-toggle" class="btn btn-dark">🌞</button>
+
+
+
+        <script>
+          const toggleButton = document.getElementById("mode-toggle");
+        
+          toggleButton.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            document.querySelector(".navbar").classList.toggle("dark-mode");
+        
+            // Update button text based on mode
+            if (document.body.classList.contains("dark-mode")) {
+              toggleButton.textContent = "🌞";
+            } else {
+              toggleButton.textContent = "🌙";
+            }
+          });
+        // </script>
+
+
+        <!-- <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form> -->
+      </div>
+    </div>
+  </nav>
+</html>
+
+
+
+
+
+
+
+
+Blog Posts Card section start
+  <div class="row">
+    <!-- Blog content will go here -->
+  </div>
+</div>
+
+    <!-- Blog Posts Section (Full Width Cards) -->
+<div class="container-fluid my-3" style="color: black">
+  <div class="row">
+    <!-- Blog Post Cards -->
+    {% for i in data %}
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card blog-post-card shadow h-100">
+        <!-- {% if i.image %} -->
+        <img
+          src="{{i.image.url}}"
+          class="card-img-top p-2"
+          alt="Blog Post Image"
+        />
+        <!-- {% endif %} -->
+        <div class="card-body">
+          <h5 class="card-title">{{i.title}}</h5>
+          <p>
+            <small class="text-muted"
+              >Author: {{i.author.first_name}} | {{i.created_at}}</small
+            >
+          </p>
+          <!-- <p class="card-text">{{ i.content|truncatechars:100 }}</p> -->
+          <p class="card-text">{{ i.content }}</p>
+          <a href="/post/{{i.id}}" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- post blog function -->
+def postblog(request):
+context={}
+if request.user.is_authenticated :
+    if request.method == 'GET':
+        return render(request, 'postblog.html')
+    else:
+        t=request.POST['title']
+        cat=request.POST['category']
+        con=request.POST['content']
+        img=request.POST['image']
+        aid=request.user
+        # print(t)
+        # print(cat)
+        # print(con)
+        # print(img)
+        # print(aid)
+        if t=='' or cat=='' or con=='' or img=='':
+            # print('Please fill all the fields')
+            context['errormsg']='Please fill all the fields'
+        elif len(con)>2000:
+            # print('Password must be atleast 8 character')
+            context['errormsg']='Content should be less than 2000 characters'
+        else:
+            try:
+                u=Post.objects.create(title=t,category=cat,content=con,image=img,author=aid)
+                u.save()
+                context['success']='Blog Posted Successfully'  
+            except Exception:
+                context['errormsg']='Error occured, try again..!'             
+    return render(request,'postblog.html',context)
+else:
+    return redirect('/login')

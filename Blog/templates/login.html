@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+    <!-- Login Form Section -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 mx-auto shadow p-3 form_style" style="background-color: white;">
+                {% if errormsg %}
+                    <div class="alert alert-danger" role="alert">
+                        {{errormsg}}
+                    </div>
+                {% endif %}
+                <h1 class="text-center" style="color: red;">Login</h1>
+                <hr class="text-white">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-2">
+                        <label for="Input1" class="form-label">Email:</label>
+                        <input 
+                        type="email" 
+                        name="ue" 
+                        class="form-control" 
+                        id="Input1" 
+                        placeholder="Enter your email" 
+                        required>
+                    </div>
+                    
+                    <div class="mb-2">
+                        <label for="Input3" class="form-label">Password:</label>
+                        <input type="password" name="upass" class="form-control" id="Input3" placeholder="Enter your password" required>
+                    </div>
+                    
+                    <div class="mb-6 mt-4">
+                        <input type="submit" value="Login" class="btn btn-danger" style="width: 100%;">
+                    </div>
+                    <div class="mt-2">
+                        New User? <a href="/register">Register Here</a>
+                    </div>
+                    <a href="/forgot-password" class="text-danger">Forgot Password?</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+{% endblock 'main' %}

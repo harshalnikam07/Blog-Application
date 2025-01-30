@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="{% static 'myblogpage.css' %}" />
+    <link rel="stylesheet" href="{% static 'subscribe.css' %}" />
+    <link rel="stylesheet" href="{% static 'home.css' %}" />
+    <!-- <link rel="stylesheet" href="{% static 'exploreblog.css' %}" /> -->
+    <script src="{% static 'js/script.js' %}" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <style>
+      /* Home page styles */
+      .hero-section {
+        background: url("{% static 'images/blog-bg.png' %}");
+        margin: 0 20px;
+        border-radius: 10px;
+        background-size: cover;
+        color: white;
+        padding: 60px 0;
+      }
+
+      .hero-section h1 {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+
+      .hero-section p {
+        font-size: 1.2rem;
+      }
+
+      .blog-post-card {
+        margin-bottom: 30px;
+      }
+
+      .blog-post-card img {
+        height: 300px;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a href="/home">
+          <img
+            
+            src="{% static 'images/blog_logo.png' %}"
+            alt="Blog-Crafters"
+            height="35px"
+            width="35px"
+            class="mx-2"
+          />
+        </a>
+        <a class="navbar-brand mx-2" href="/home"><strong>Blog-Crafters</strong></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/exploreblog">Explore</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/postblog">Post</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/subscribe">Subscribe</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/aboutus">About us</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="/myblogs">MyBlogs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+            <li class="nav-item">
+              <span class="nav-link">Hello, {{ user.first_name }}!</span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/myprofile">
+                <i class="bi bi-person-circle" style="color: #eeeeee"></i
+              ></a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="/register">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  </body>
+</html>

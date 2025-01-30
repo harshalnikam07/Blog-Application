@@ -1,0 +1,78 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block 'main' %}
+
+<div class="conatiner bg-light p-5 mt-4 shadow rounded-3 mx-auto" style="max-width: 1100px;">
+  <div class="form-container">
+    {% if errormsg %}
+        <div class="alert alert-danger" role="alert">
+            <i class="bi bi-exclamation-circle-fill me-2"></i>{{errormsg}}
+        </div>
+    {% endif %} 
+
+    {% if success %}
+        <div class="alert alert-success" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i>{{success}}
+        </div>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %} {% for i in data %}
+        <!-- Blog Title -->
+        <div class="mb-3">
+            <label for="exampleInputName1" class="form-label">Title</label>
+            <input type="text" class="form-control" id="exampleInputName1" name="title" value="{{i.title}}"/>
+        </div>
+
+        <!-- Blog Category -->
+        <div class="mb-3">
+            <label for="exampleInputCategory" class="form-label">Category</label>
+            <select class=" form-select" id="exampleInputCategory" name="category">
+                <option value="">{{i.category}}</option>
+                <option value="Technology">Technology</option>
+                <option value="Health">Health</option>
+                <option value="Travel">Travel</option>
+                <option value="Education">Education</option>
+            </select>
+        </div>
+
+        <!-- Blog Content -->
+        <div class="mb-3">
+            <label for="exampleInputMsg" class="form-label">Content</label>
+            <textarea class="form-control" id="exampleInputMsg" name="content" rows="5">{{i.content}}</textarea>
+            <small class="form-text text-muted">You can enter up to 2000 characters.</small>
+        </div>
+
+        <!-- Blog Image Upload -->
+        <div class="mb-3">
+        <label for="exampleInputImage" class="form-label">Image</label>
+        <input
+          type="file"
+          class="form-control"
+          id="exampleInputImage"
+          name="image"
+          accept="image/*"
+          value=""/>{{i.image}}
+      </div>
+
+        {% if i.image %}
+        <div class="mt-2">
+        <img
+          src="{{ i.image.url }}"
+          alt="Current Image"
+          class="img-thumbnail"
+          style="max-width: 150px"/>
+        <small class="text-muted d-block mt-2">Current image</small>
+        </div>
+      {% endif %}
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary btn-lg w-100 mt-3">
+        <i class="bi bi-save me-2"></i>Save & Post
+      </button>
+      {% endfor %}
+    </form>
+  </div>
+</div>
+
+{% endblock 'main' %}

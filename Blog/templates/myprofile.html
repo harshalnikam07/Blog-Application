@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+
+<div class="container profile-container">
+    <!-- Loop through the data to render profile cards -->
+    {% for i in data %}
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="profile-card">
+                <!-- Profile Header -->
+                {% if forloop.counter == 1 %}
+                <div class="profile-header">
+                    <div class="profile-avatar mx-auto">
+                        <i class="bi bi-person-circle" style="font-size: 80px; color: #6c757d;"></i>
+                    </div>
+                    <h2 class="mt-4">{{ i.aid.first_name }}</h2>
+                    <p>{{ i.aid.email }}</p>
+                    <span class="badge badge-premium">
+                        Subscription Plan: {{ i.sub_plan.sub_plan }}
+                    </span>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock 'main' %}
